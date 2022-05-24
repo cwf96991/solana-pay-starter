@@ -59,7 +59,15 @@ const createTransaction = async (req, res) => {
       bigAmount.toNumber() * 10 ** (await usdcMint).decimals, 
       usdcMint.decimals // The token could have any number of decimals
     );
-
+        // This is the "action" that the transaction will take
+    // We're just going to transfer some SOL
+    
+    // const transferInstruction = SystemProgram.transfer({
+    //     fromPubkey: buyerPublicKey,
+        // Lamports are the smallest unit of SOL, like Gwei with Ethereum
+    //     lamports: bigAmount.multipliedBy(LAMPORTS_PER_SOL).toNumber(),
+    //     toPubkey: sellerPublicKey,
+    //   });
     // The rest remains the same :)
     transferInstruction.keys.push({
       pubkey: new PublicKey(orderID),
